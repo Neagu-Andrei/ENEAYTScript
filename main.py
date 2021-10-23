@@ -1,33 +1,34 @@
+import concurrent.futures
+import pyaudio
+
+from audio_video_recording import audi_video_recording
 from Driver import DriverController
 import cv2
 import numpy as np
 import pyautogui
 
-# driver = DriverController()
-# driver.search_for_video("jador aseara dansez singura")
+
+def youtube_api(driver):
+    print("Incepe executarea deschiderea yt")
+    driver.search_for_video("jador aseara dansez singura")
+    print("S-a executat deschiderea yt")
 
 
-# display screen resolution, get it from your OS settings
-SCREEN_SIZE = (1920, 1080)
-# define the codec
-fourcc = cv2.VideoWriter_fourcc(*"XVID")
-# create the video write object
-out = cv2.VideoWriter("output.avi", fourcc, 20.0, SCREEN_SIZE)
-for _ in range(2400):
-    # make a screenshot
-    img = pyautogui.screenshot()
-    # convert these pixels to a proper numpy array to work with OpenCV
-    frame = np.array(img)
-    # convert colors from BGR to RGB
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    # write the frame
-    out.write(frame)
-    # show the frame
-    # cv2.imshow("screenshot", frame)
-    # if the user clicks q, it exits
-    if cv2.waitKey(1) == ord("q"):
-        break
+if __name__ == '__main__':
+    driver = DriverController()
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        t1 = executor.submit(youtube_api, driver)
+        t2 = executor.submit(audi_video_recording)
 
-# make sure everything is closed when exited
-cv2.destroyAllWindows()
-out.release()
+    # audi_video_recording()
+
+        # t1.result()
+        # t2.result()
+    # t1 = threading.Thread(target=youtube_api)
+    # # t2 = threading.Thread(target=screen_record)
+    #
+    # t1.start()
+    # # t2.start()
+    #
+    # t1.join()
+    # # t2.join()

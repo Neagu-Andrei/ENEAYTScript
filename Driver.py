@@ -10,6 +10,7 @@ class DriverController:
 
     def __init__(self):
         self.driver = webdriver.Chrome()
+        self.driver.maximize_window()
         self.driver.get(self.ytLink)
         self.driver.implicitly_wait(10)
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.agreeButtonXPath))).click()
@@ -17,6 +18,8 @@ class DriverController:
     def select_video(self, path, number):
         videos = self.driver.find_elements(By.XPATH, path)
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(videos[number])).click()
+        # de facut butonul de skip in cazul in care reclama este prea lunga
+        print("De aici")
 
     def search_for_video(self, name):
         searchbar = WebDriverWait(self.driver, 10).until(
@@ -24,7 +27,7 @@ class DriverController:
         searchbar.click()
         searchbar.send_keys(name)
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='search-icon-legacy']"))).click()
-        self.driver.implicitly_wait(10)
+        # self.driver.implicitly_wait(10)
         self.select_video("//*[@id='contents']/ytd-video-renderer[1]", 0)
 
 
