@@ -14,7 +14,7 @@ def screen_record():
     # define the codec
     fourcc = cv2.VideoWriter_fourcc(*"XVID")
     # create the video write object
-    out = cv2.VideoWriter("output.avi", fourcc, 20.0, SCREEN_SIZE)
+    out = cv2.VideoWriter("output.avi", fourcc, 18.0, SCREEN_SIZE)
     images = []
     for i in range(400):
         print(i)
@@ -101,6 +101,6 @@ def audio_record():
 
 
 def audi_video_recording():
-    with concurrent.futures.ProcessPoolExecutor() as executor:
+    with concurrent.futures.ThreadPoolExecutor() as executor:
         t1 = executor.submit(screen_record)
         t2 = executor.submit(audio_record)

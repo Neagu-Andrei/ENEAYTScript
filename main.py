@@ -10,7 +10,10 @@ import pyautogui
 
 def youtube_api(driver):
     print("Incepe executarea deschiderea yt")
+    driver.open_yt()
+    driver.agree_cookies()
     driver.search_for_video("jador aseara dansez singura")
+
     print("S-a executat deschiderea yt")
 
 
