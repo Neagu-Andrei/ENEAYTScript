@@ -16,7 +16,7 @@ def screen_record():
     # create the video write object
     out = cv2.VideoWriter("output.avi", fourcc, 18.0, SCREEN_SIZE)
     images = []
-    for i in range(400):
+    for i in range(360):
         print(i)
         # make a screenshot
         img = pyautogui.screenshot()

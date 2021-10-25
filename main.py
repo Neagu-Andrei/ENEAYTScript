@@ -13,7 +13,7 @@ def youtube_api(driver):
     driver.open_yt()
     driver.agree_cookies()
     driver.search_for_video("jador aseara dansez singura")
-
+    driver.skip_ad()
     print("S-a executat deschiderea yt")
 
 
