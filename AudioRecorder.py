@@ -6,16 +6,18 @@ logger = logging.getLogger(__name__)
 
 
 class AudioRecorder:
-    fileName = "recorded.wav"
     chunk = 1024
     FORMAT = pyaudio.paInt16
     channels = 1
     sampleRate = 44100
     seconds = 120
 
-    def __init__(self):
+    def __init__(self, filename):
+        self.fileName = filename
         self.frames = []
         self.p = pyaudio.PyAudio()
+        # If Stereo Mix is not found dev_index = None
+        # Switches to the default input device
         dev_index = self.get_stereoMix()
         self.stream = self.p.open(format=self.FORMAT,
                                   channels=self.channels,
@@ -25,6 +27,7 @@ class AudioRecorder:
                                   input_device_index=dev_index,
                                   frames_per_buffer=self.chunk)
 
+    # Function to get Stereo Mix to get the audio from our computer
     def get_stereoMix(self):
         for i in range(self.p.get_device_count()):
             dev = self.p.get_device_info_by_index(i)

@@ -306,3 +306,174 @@ INFO:ScreenRecorder at 2021-10-28 16:41:34,862: Finished screen recording
 WARNING:Driver at 2021-10-28 16:44:31,012: Couldn't find the agree button
 WARNING:Driver at 2021-10-28 16:45:56,553: Couldn't find the agree button
 CRITICAL:Driver at 2021-10-28 17:17:54,356: The element you are trying to select is not in the array of elements
+INFO:Driver at 2021-10-28 20:02:47,891: No skippable ad displayed
+INFO:AudioRecorder at 2021-10-28 20:02:47,896: Start audio recording...
+INFO:ScreenRecorder at 2021-10-28 20:02:47,897: Start screen recording...
+INFO:Driver at 2021-10-28 20:05:29,134: No skippable ad displayed
+INFO:AudioRecorder at 2021-10-28 20:05:29,136: Start audio recording...
+INFO:ScreenRecorder at 2021-10-28 20:05:29,137: Start screen recording...
+INFO:ScreenRecorder at 2021-10-28 20:07:28,818: Finished screen recording
+INFO:AudioRecorder at 2021-10-28 20:07:37,358: Finished audio recording
+INFO:AudioRecorder at 2021-10-28 20:07:40,129: Started compiling audio recorder
+INFO:AudioRecorder at 2021-10-28 20:07:40,168: Finished compilig audio recording
+INFO:ScreenRecorder at 2021-10-28 20:07:40,168: Started compiling screen recording
+INFO:Driver at 2021-10-28 20:09:00,727: No skippable ad displayed
+INFO:AudioRecorder at 2021-10-28 20:09:00,732: Start audio recording...
+INFO:ScreenRecorder at 2021-10-28 20:09:00,733: Start screen recording...
+INFO:ScreenRecorder at 2021-10-28 20:10:38,595: Finished screen recording
+INFO:AudioRecorder at 2021-10-28 20:11:02,451: Finished audio recording
+INFO:AudioRecorder at 2021-10-28 20:11:04,993: Started compiling audio recorder
+INFO:AudioRecorder at 2021-10-28 20:11:05,011: Finished compilig audio recording
+INFO:ScreenRecorder at 2021-10-28 20:11:05,011: Started compiling screen recording
+INFO:ScreenRecorder at 2021-10-28 20:12:01,673: Finished compilig screen recording
+INFO:Driver at 2021-10-28 20:17:02,019: No skippable ad displayed
+INFO:Driver at 2021-10-28 20:18:38,257: No skippable ad displayed
+INFO:Driver at 2021-10-28 20:22:35,264: No skippable ad displayed
+INFO:Driver at 2021-10-28 20:24:34,228: No skippable ad displayed
+INFO:Driver at 2021-10-28 20:25:50,802: No skippable ad displayed
+INFO:Driver at 2021-10-28 20:27:30,284: No skippable ad displayed
+INFO:Driver at 2021-10-28 20:31:21,943: No skippable ad displayed
+INFO:Driver at 2021-10-28 20:32:02,702: No skippable ad displayed
+INFO:Driver at 2021-10-28 20:36:49,250: No skippable ad displayed
+INFO:Driver at 2021-10-28 20:42:20,253: No skippable ad displayed
+WARNING:urllib3.connectionpool at 2021-10-28 20:42:26,923: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002453947ECC8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/2082776d73396ed0e1806070dd61dd7f
+WARNING:urllib3.connectionpool at 2021-10-28 20:42:30,988: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002453947EEC8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/2082776d73396ed0e1806070dd61dd7f
+WARNING:urllib3.connectionpool at 2021-10-28 20:42:35,047: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002453948A088>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/2082776d73396ed0e1806070dd61dd7f
+INFO:Driver at 2021-10-28 20:49:43,600: No skippable ad displayed
+ERROR:Driver at 2021-10-28 21:02:38,723: Internet connection failed
+ERROR:Driver at 2021-10-28 21:02:40,755: Internet connection failed
+ERROR:Driver at 2021-10-28 21:02:42,783: Internet connection failed
+ERROR:Driver at 2021-10-28 21:02:44,809: Internet connection failed
+ERROR:Driver at 2021-10-28 21:02:46,844: Internet connection failed
+ERROR:Driver at 2021-10-28 21:02:48,880: Internet connection failed
+ERROR:Driver at 2021-10-28 21:02:50,918: Internet connection failed
+ERROR:Driver at 2021-10-28 21:02:52,955: Internet connection failed
+ERROR:Driver at 2021-10-28 21:02:54,983: Internet connection failed
+ERROR:Driver at 2021-10-28 21:02:57,012: Internet connection failed
+ERROR:Driver at 2021-10-28 21:02:59,032: Internet connection failed
+ERROR:Driver at 2021-10-28 21:03:01,068: Internet connection failed
+ERROR:Driver at 2021-10-28 21:03:03,097: Internet connection failed
+ERROR:Driver at 2021-10-28 21:03:05,136: Internet connection failed
+ERROR:Driver at 2021-10-28 21:03:07,169: Internet connection failed
+ERROR:Driver at 2021-10-28 21:03:09,204: Internet connection failed
+
+INFO:Driver at 2021-10-28 21:12:04,929: No skippable ad displayed
+ERROR:Driver at 2021-10-28 21:39:38,173: Internet connection failed
+ERROR:Driver at 2021-10-28 21:41:24,509: Internet connection failed
+ERROR:Driver at 2021-10-28 21:42:06,142: Internet connection failed
+ERROR:Driver at 2021-10-28 21:42:06,143: Internet connection failed
+ERROR:Driver at 2021-10-28 21:42:49,236: Internet connection failed
+ERROR:Driver at 2021-10-28 21:42:49,236: Internet connection failed
+ERROR:Driver at 2021-10-28 21:44:02,731: Internet connection failed
+ERROR:Driver at 2021-10-28 21:44:02,732: Internet connection failed
+ERROR:Driver at 2021-10-28 21:44:02,738: Internet connection failed
+INFO:AudioRecorder at 2021-10-28 21:44:02,739: Start audio recording...
+INFO:ScreenRecorder at 2021-10-28 21:44:02,739: Start screen recording...
+
+
+ERROR:Driver at 2021-10-28 21:45:57,439: Internet connection failed
+INFO:Driver at 2021-10-28 21:46:18,499: No skippable ad displayed
+ERROR:Driver at 2021-10-28 21:46:18,502: Internet connection failed
+INFO:AudioRecorder at 2021-10-28 21:46:18,503: Start audio recording...
+INFO:ScreenRecorder at 2021-10-28 21:46:18,503: Start screen recording...
+
+
+
+INFO:Driver at 2021-10-28 21:50:54,372: No skippable ad displayed
+ERROR:Driver at 2021-10-28 21:50:54,376: Internet connection failed
+INFO:AudioRecorder at 2021-10-28 21:50:54,377: Start audio recording...
+INFO:ScreenRecorder at 2021-10-28 21:50:54,377: Start screen recording...
+INFO:Driver at 2021-10-28 21:53:40,420: No skippable ad displayed
+ERROR:Driver at 2021-10-28 21:53:40,421: Internet connection failed
+
+INFO:Driver at 2021-10-28 22:04:55,308: No skippable ad displayed
+ERROR:Driver at 2021-10-28 22:04:55,309: Internet connection failed
+INFO:Driver at 2021-10-28 22:17:59,005: No skippable ad displayed
+INFO:Driver at 2021-10-28 22:19:36,986: No skippable ad displayed
+INFO:AudioRecorder at 2021-10-28 22:19:36,992: Start audio recording...
+INFO:ScreenRecorder at 2021-10-28 22:19:36,994: Start screen recording...
+INFO:ScreenRecorder at 2021-10-28 22:21:07,013: Finished screen recording
+INFO:AudioRecorder at 2021-10-28 22:21:37,281: Finished audio recording
+INFO:AudioRecorder at 2021-10-28 22:21:44,496: Started compiling audio recorder
+INFO:AudioRecorder at 2021-10-28 22:21:44,518: Finished compilig audio recording
+INFO:ScreenRecorder at 2021-10-28 22:21:44,518: Started compiling screen recording
+INFO:ScreenRecorder at 2021-10-28 22:22:56,468: Finished compilig screen recording
+
+ERROR:Driver at 2021-10-28 22:28:49,274: Internet connection failed. Couldn't press agree button
+ERROR:Driver at 2021-10-28 22:28:49,275: Internet connection failed. Couldn't press agree button
+ERROR:Driver at 2021-10-28 22:28:49,276: Internet connection failed. Couldn't press agree button
+WARNING:Driver at 2021-10-28 22:30:40,705: Path to the video might be wrong
+ERROR:Driver at 2021-10-28 22:32:59,957: Internet connection failed
+ERROR:Driver at 2021-10-28 22:32:59,958: Internet connection failed
+ERROR:Driver at 2021-10-28 22:32:59,959: Internet connection failed
+INFO:Driver at 2021-10-28 22:36:06,015: No skippable ad displayed
+INFO:AudioRecorder at 2021-10-28 22:36:06,019: Start audio recording...
+INFO:ScreenRecorder at 2021-10-28 22:36:06,020: Start screen recording...
+ERROR:Driver at 2021-10-28 22:36:06,020: Internet connection failed
+INFO:Driver at 2021-10-28 22:36:06,095: Connection was successful
+ERROR:Driver at 2021-10-28 22:37:12,500: Internet connection failed
+INFO:Driver at 2021-10-28 22:43:13,750: No skippable ad displayed
+INFO:AudioRecorder at 2021-10-28 22:43:13,753: Start audio recording...
+INFO:ScreenRecorder at 2021-10-28 22:43:13,754: Start screen recording...
+INFO:AudioRecorder at 2021-10-28 22:45:44,050: Start audio recording...
+INFO:AudioRecorder at 2021-10-28 22:46:40,934: Start audio recording...
+INFO:AudioRecorder at 2021-10-28 22:47:00,941: Finished audio recording
+INFO:AudioRecorder at 2021-10-28 22:47:01,001: Started compiling audio recorder
+INFO:AudioRecorder at 2021-10-28 22:47:01,007: Finished compilig audio recording
+INFO:AudioRecorder at 2021-10-28 22:47:28,029: Start audio recording...
+INFO:AudioRecorder at 2021-10-28 22:47:48,026: Finished audio recording
+INFO:AudioRecorder at 2021-10-28 22:47:48,070: Started compiling audio recorder
+INFO:AudioRecorder at 2021-10-28 22:47:48,072: Finished compilig audio recording
+INFO:Driver at 2021-10-28 22:49:28,189: No skippable ad displayed
+INFO:AudioRecorder at 2021-10-28 22:49:28,190: Start audio recording...
+INFO:AudioRecorder at 2021-10-28 22:49:48,063: Finished audio recording
+INFO:AudioRecorder at 2021-10-28 22:49:48,093: Started compiling audio recorder
+INFO:AudioRecorder at 2021-10-28 22:49:48,097: Finished compilig audio recording
+INFO:Driver at 2021-10-28 22:55:32,418: No skippable ad displayed
+INFO:AudioRecorder at 2021-10-28 22:55:32,418: Start audio recording...
+INFO:AudioRecorder at 2021-10-28 22:55:52,290: Finished audio recording
+INFO:AudioRecorder at 2021-10-28 22:55:52,312: Started compiling audio recorder
+INFO:AudioRecorder at 2021-10-28 22:55:52,314: Finished compilig audio recording
+INFO:AudioRecorder at 2021-10-28 22:57:22,507: Start audio recording...
+INFO:Driver at 2021-10-29 01:22:02,014: No skippable ad displayed
+INFO:AudioRecorder at 2021-10-29 01:22:02,017: Start audio recording...
+INFO:ScreenRecorder at 2021-10-29 01:22:02,018: Start screen recording...
+INFO:Driver at 2021-10-29 01:27:27,718: No skippable ad displayed
+INFO:AudioRecorder at 2021-10-29 01:27:27,722: Start audio recording...
+INFO:ScreenRecorder at 2021-10-29 01:27:27,722: Start screen recording...
+
+INFO:Driver at 2021-10-29 01:28:37,740: No skippable ad displayed
+INFO:AudioRecorder at 2021-10-29 01:28:37,744: Start audio recording...
+INFO:ScreenRecorder at 2021-10-29 01:28:37,745: Start screen recording...
+INFO:Driver at 2021-10-29 01:30:42,782: Connection was successful
+INFO:ScreenRecorder at 2021-10-29 01:31:06,964: Finished screen recording
+INFO:AudioRecorder at 2021-10-29 01:31:10,468: Finished audio recording
+INFO:AudioRecorder at 2021-10-29 01:31:13,533: Started compiling audio recorder
+INFO:ScreenRecorder at 2021-10-29 01:31:13,534: Started compiling screen recording
+INFO:AudioRecorder at 2021-10-29 01:31:13,648: Finished compilig audio recording
+INFO:ScreenRecorder at 2021-10-29 01:32:28,716: Finished compilig screen recording
+INFO:Driver at 2021-10-29 01:38:40,581: Ad skipped
+INFO:AudioRecorder at 2021-10-29 01:38:40,587: Start audio recording...
+INFO:ScreenRecorder at 2021-10-29 01:38:40,588: Start screen recording...
+INFO:ScreenRecorder at 2021-10-29 01:40:21,813: Finished screen recording
+INFO:AudioRecorder at 2021-10-29 01:40:41,909: Finished audio recording
+INFO:Driver at 2021-10-29 01:40:45,637: Connection was successful
+INFO:AudioRecorder at 2021-10-29 01:40:48,513: Started compiling audio recorder
+INFO:ScreenRecorder at 2021-10-29 01:40:48,513: Started compiling screen recording
+INFO:AudioRecorder at 2021-10-29 01:40:48,586: Finished compilig audio recording
+INFO:ScreenRecorder at 2021-10-29 01:41:53,719: Finished compilig screen recording
+
+INFO:__main__ at 2021-10-29 01:44:47,913: Incepe executarea deschiderea yt
+INFO:Driver at 2021-10-29 01:45:18,865: No skippable ad displayed
+INFO:__main__ at 2021-10-29 01:45:18,865: S-a executat deschiderea yt
+INFO:AudioRecorder at 2021-10-29 01:45:18,870: Start audio recording...
+INFO:ScreenRecorder at 2021-10-29 01:45:18,871: Start screen recording...
+INFO:ScreenRecorder at 2021-10-29 01:47:06,754: Finished screen recording
+INFO:Driver at 2021-10-29 01:47:23,917: Connection was successful
+INFO:AudioRecorder at 2021-10-29 01:47:27,563: Finished audio recording
+INFO:AudioRecorder at 2021-10-29 01:47:30,116: Started compiling audio recorder
+INFO:ScreenRecorder at 2021-10-29 01:47:30,117: Started compiling screen recording
+INFO:AudioRecorder at 2021-10-29 01:47:30,155: Finished compilig audio recording
+INFO:ScreenRecorder at 2021-10-29 01:48:34,445: Finished compilig screen recording
+INFO:__main__ at 2021-10-29 01:48:34,499: Program ended successfully.
+ 

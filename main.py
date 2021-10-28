@@ -1,5 +1,4 @@
 import concurrent.futures
-import subprocess
 import time
 from AudioRecorder import AudioRecorder
 from ScreenRecorder import ScreenRecorder
@@ -7,10 +6,10 @@ from Driver import DriverController
 from scipy.fft import *
 from scipy.io import wavfile
 import numpy as np
-import matplotlib.pyplot as plt
 from pydub import AudioSegment
 from math import log10
 import logging
+import csv
 
 logging.basicConfig(filename='log_file.log', level=logging.INFO,
                     format='%(levelname)s:%(name)s at %(asctime)s: %(message)s')
@@ -43,7 +42,6 @@ logger = logging.getLogger(__name__)
 #     freq = xf[idx]
 #     return freq, idx
 
-
 # RMS (Root Mean Squared) = mathematic calculation to measure the avreage amplitude
 # 20*log10(amplitude) = vertical scale in dB
 def sound_intensity(file):
@@ -53,32 +51,35 @@ def sound_intensity(file):
 
 
 def youtube_api(driver):
-    # print("Incepe executarea deschiderea yt")
-    # driver.open_yt()
-    # driver.agree_cookies()
-    driver.search_for_video("hasanabi")
+    logger.info("Incepe executarea deschiderea yt")
+    driver.open_yt()
+    driver.agree_cookies()
+    driver.search_for_video("music")
     driver.skip_ad()
-    print("S-a executat deschiderea yt")
-
-
-# def combine_audio(vidname, audname, outname):
-#     cmd = f"ffmpeg -i {vidname} -i {audname} -c:v copy -c:a aac {outname}"
-#     subprocess.call(cmd, shell=True)
-#     print("Mixing Done")
+    logger.info("S-a executat deschiderea yt")
 
 
 if __name__ == '__main__':
-    # driverContrl = DriverController()
-    # audioRec = AudioRecorder()
-    # screenRec = ScreenRecorder()
-    # driverContrl.open_yt()
-    # driverContrl.agree_cookies()
-    # youtube_api(driverContrl)
-    # with concurrent.futures.ThreadPoolExecutor() as executor:
-    #     # t1 = executor.submit(youtube_api, driverContrl)
-    #     t2 = executor.submit(audioRec.record)
-    #     t3 = executor.submit(screenRec.update)
-    # audioRec.save_to_file()
-    # screenRec.write()
-    # combine_audio("screen_recording.avi", "recorded.wav", "yt_clip.avi")
-    print(sound_intensity("recorded.wav"))
+    DIR = "resources/"
+    audioFile = DIR + "audio_recording.wav"
+    screenFile = DIR + "screen_recording.avi"
+    driverContrl = DriverController()
+    audioRec = AudioRecorder(audioFile)
+    screenRec = ScreenRecorder(screenFile)
+    youtube_api(driverContrl)
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        executor.submit(driverContrl.time_connected, 125)
+        executor.submit(audioRec.record)
+        executor.submit(screenRec.update)
+        executor.shutdown(wait=True)
+    driverContrl.stop()
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        executor.submit(audioRec.save_to_file)
+        executor.submit(screenRec.write)
+    with open(DIR + 'intensity_record.csv', 'a', newline='') as csv_file:
+        fieldnames = ['Audio File', 'Intensity']
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerow([audioFile, sound_intensity(audioFile)])
+    logger.info("Program ended successfully.\n ")
+
+
