@@ -1,5 +1,8 @@
 import wave
 import pyaudio
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class AudioRecorder:
@@ -8,10 +11,10 @@ class AudioRecorder:
     FORMAT = pyaudio.paInt16
     channels = 1
     sampleRate = 44100
-    seconds = 20
+    seconds = 120
 
     def __init__(self):
-        self.frames = None
+        self.frames = []
         self.p = pyaudio.PyAudio()
         dev_index = self.get_stereoMix()
         self.stream = self.p.open(format=self.FORMAT,
@@ -29,21 +32,23 @@ class AudioRecorder:
                 return dev['index']
 
     def record(self):
-        print("Recording...")
+        logger.info("Start audio recording...")
         for i in range(int(44100 / self.chunk * self.seconds)):
             data = self.stream.read(self.chunk)
             # if you want to hear your voice while recording
             # data = stream.write(chunk)
             self.frames.append(data)
-        print("Finished recording")
+        logger.info("Finished audio recording")
         self.stream.start_stream()
         self.stream.close()
         self.p.terminate()
 
     def save_to_file(self):
+        logger.info("Started compiling audio recorder")
         wf = wave.open(self.fileName, "wb")
         wf.setnchannels(self.channels)
         wf.setsampwidth(self.p.get_sample_size(self.FORMAT))
         wf.setframerate(self.sampleRate)
         wf.writeframes(b"".join(self.frames))
+        logger.info("Finished compilig audio recording")
         wf.close()
