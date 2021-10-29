@@ -1,4 +1,6 @@
+import csv
 import errno
+from cmath import log10
 
 import cv2
 import pyautogui
@@ -6,16 +8,18 @@ import numpy as np
 from queue import Queue
 import logging
 
+from pydub import AudioSegment
+
 logger = logging.getLogger(__name__)
 
 
 class ScreenRecorder:
     screenSize = (1920, 1080)
-    filename = "screen_recording.avi"
+    # filename = "screen_recording.avi"
     fps = 11
-    seconds = 120
 
-    def __init__(self, filename):
+    def __init__(self, filename, seconds):
+        self.seconds = seconds
         self.filename = filename    # name of the file
         self.fourcc = cv2.VideoWriter_fourcc(*"XVID")   # video codec
         self.out = cv2.VideoWriter(self.filename, self.fourcc, self.fps, self.screenSize)
@@ -48,5 +52,3 @@ class ScreenRecorder:
                 raise
         finally:
             self.out.release()
-
-

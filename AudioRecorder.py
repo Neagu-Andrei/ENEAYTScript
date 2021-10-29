@@ -1,7 +1,12 @@
+import csv
 import errno
 import wave
+from math import log10
+
 import pyaudio
 import logging
+
+from pydub import AudioSegment
 
 logger = logging.getLogger(__name__)
 
@@ -11,10 +16,10 @@ class AudioRecorder:
     FORMAT = pyaudio.paInt16
     channels = 1    # mono audio stream
     sampleRate = 44100  # number of frames per second
-    seconds = 120
 
-    def __init__(self, filename):
-        self.fileName = filename
+    def __init__(self, filename, seconds):
+        self.filename = filename
+        self.seconds = seconds
         self.frames = []
         self.p = pyaudio.PyAudio()
         # If Stereo Mix is not found dev_index = None
@@ -48,12 +53,12 @@ class AudioRecorder:
         self.p.terminate()
 
     def save_to_file(self):
+        logger.info("Started compiling audio recorder")
+        wf = wave.open(self.filename, "wb")
+        wf.setnchannels(self.channels)
+        wf.setsampwidth(self.p.get_sample_size(self.FORMAT))
+        wf.setframerate(self.sampleRate)
         try:
-            logger.info("Started compiling audio recorder")
-            wf = wave.open(self.fileName, "wb")
-            wf.setnchannels(self.channels)
-            wf.setsampwidth(self.p.get_sample_size(self.FORMAT))
-            wf.setframerate(self.sampleRate)
             wf.writeframes(b"".join(self.frames))
             logger.info("Finished compilig audio recording")
         except OSError as e:
@@ -65,3 +70,25 @@ class AudioRecorder:
                 raise
         finally:
             wf.close()
+
+    # RMS (Root Mean Squared) = mathematic calculation to measure the avreage amplitude
+    # 20*log10(amplitude) = vertical scale in dB
+    def sound_intensity(self):
+        sound = AudioSegment.from_file(self.filename)  # get the file using pydub
+        db = 20 * log10(sound.rms)
+        return db
+
+    def write_intensity(self, intensityFile):
+        logger.info("Started writing intensity")
+        with open(intensityFile, 'a', newline='') as csv_file:
+            csv_writer = csv.writer(csv_file)
+            try:
+                csv_writer.writerow([self.filename, self.sound_intensity()])
+                logger.info("Wrote intensity of the sound in file")
+            except OSError as e:
+                if e.errno == errno.ENOSPC:
+                    logger.error("Couldn't write intensity in the file. Disk space is full")
+                    raise
+                else:
+                    logger.error(e)
+                    raise

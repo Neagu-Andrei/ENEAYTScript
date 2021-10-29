@@ -1,6 +1,5 @@
 import concurrent.futures
 import errno
-
 from AudioRecorder import AudioRecorder
 from ScreenRecorder import ScreenRecorder
 from Driver import DriverController
@@ -10,6 +9,7 @@ import numpy as np
 from pydub import AudioSegment
 from math import log10
 import logging
+from threading import Thread
 import csv
 logging.basicConfig(filename='log_file.log', level=logging.INFO,
                     format='%(levelname)s:%(name)s at %(asctime)s: %(message)s')
@@ -42,8 +42,7 @@ logger = logging.getLogger(__name__)
 #     freq = xf[idx]
 #     return freq, idx
 
-# RMS (Root Mean Squared) = mathematic calculation to measure the avreage amplitude
-# 20*log10(amplitude) = vertical scale in dB
+
 def sound_intensity(file):
     sound = AudioSegment.from_file(file)  # get the file using pydub
     db = 20 * log10(sound.rms)
@@ -64,31 +63,36 @@ if __name__ == '__main__':
     DIR = "resources/"
     audioFile = DIR + "audio_recording.wav"
     screenFile = DIR + "screen_recording.avi"
-    driverContrl = DriverController()
-    audioRec = AudioRecorder(audioFile)
-    screenRec = ScreenRecorder(screenFile)
-    youtube_handler(driverContrl)
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        executor.submit(driverContrl.time_connected, 125)
-        executor.submit(audioRec.record)
-        executor.submit(screenRec.update)
-        executor.shutdown(wait=True)
+    intensityFile = DIR + "intensity_record.csv"
+    seconds = 120
+
+    driverContrl = DriverController(seconds)
+    audioRec = AudioRecorder(audioFile, seconds)
+    screenRec = ScreenRecorder(screenFile, seconds)
+    driverContrl.run()
+
+    t1 = Thread(target=driverContrl.time_connected)
+    t2 = Thread(target=screenRec.update)
+    t3 = Thread(target=audioRec.record)
+    t4 = Thread(target=audioRec.save_to_file)
+    t5 = Thread(target=screenRec.write)
+    t1.start()
+    t2.start()
+    t3.start()
+
+    t1.join()
+    t2.join()
+    t3.join()
+
     driverContrl.stop()
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        executor.submit(audioRec.save_to_file)
-        executor.submit(screenRec.write)
-    with open(DIR + 'intensity_record.csv', 'a', newline='') as csv_file:
-        fieldnames = ['Audio File', 'Intensity']
-        csv_writer = csv.writer(csv_file)
-        try:
-            csv_writer.writerow([audioFile, sound_intensity(audioFile)])
-        except OSError as e:
-            if e.errno == errno.ENOSPC:
-                logger.error("Couldn't write intensity in the file. Disk space is full")
-                raise
-            else:
-                logger.error(e)
-                raise
+
+    t4.start()
+    t5.start()
+
+    t4.join()
+    t5.join()
+
+    audioRec.write_intensity(intensityFile)
     logger.info("Program ended successfully.\n ")
 
 

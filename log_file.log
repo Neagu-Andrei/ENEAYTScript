@@ -648,3 +648,48 @@ INFO:ScreenRecorder at 2021-10-29 12:07:36,650: Finished compilig screen recordi
 DEBUG:ScreenRecorder at 2021-10-29 12:07:36,668: We got here.
 INFO:__main__ at 2021-10-29 12:07:36,712: Program ended successfully.
  
+INFO:__main__ at 2021-10-29 13:36:39,360: Incepe executarea deschiderea yt
+INFO:Driver at 2021-10-29 13:37:05,343: Ad skipped
+INFO:__main__ at 2021-10-29 13:37:05,344: S-a executat deschiderea yt
+INFO:AudioRecorder at 2021-10-29 13:37:05,383: Start audio recording...
+INFO:ScreenRecorder at 2021-10-29 13:37:05,389: Start screen recording...
+INFO:Driver at 2021-10-29 13:38:05,422: Connection was successful
+INFO:AudioRecorder at 2021-10-29 13:38:09,041: Finished audio recording
+INFO:ScreenRecorder at 2021-10-29 13:38:22,199: Finished screen recording
+INFO:AudioRecorder at 2021-10-29 13:38:25,652: Started compiling audio recorder
+INFO:ScreenRecorder at 2021-10-29 13:38:25,653: Started compiling screen recording
+INFO:AudioRecorder at 2021-10-29 13:38:25,675: Finished compilig audio recording
+INFO:ScreenRecorder at 2021-10-29 13:39:05,295: Finished compilig screen recording
+INFO:__main__ at 2021-10-29 13:39:05,348: Program ended successfully.
+ 
+INFO:Driver at 2021-10-29 15:57:36,016: Incepe executarea deschiderea yt
+INFO:Driver at 2021-10-29 15:59:07,094: Incepe executarea deschiderea yt
+INFO:Driver at 2021-10-29 15:59:24,406: Ad skipped
+INFO:Driver at 2021-10-29 15:59:24,406: S-a executat deschiderea yt
+INFO:ScreenRecorder at 2021-10-29 15:59:24,408: Start screen recording...
+INFO:AudioRecorder at 2021-10-29 15:59:24,479: Start audio recording...
+INFO:ScreenRecorder at 2021-10-29 16:01:21,353: Finished screen recording
+INFO:Driver at 2021-10-29 16:01:24,415: Connection was successful
+INFO:AudioRecorder at 2021-10-29 16:01:32,411: Finished audio recording
+INFO:AudioRecorder at 2021-10-29 16:01:35,030: Started compiling audio recorder
+INFO:ScreenRecorder at 2021-10-29 16:01:35,031: Started compiling screen recording
+INFO:AudioRecorder at 2021-10-29 16:01:35,097: Finished compilig audio recording
+INFO:ScreenRecorder at 2021-10-29 16:02:52,185: Finished compilig screen recording
+INFO:__main__ at 2021-10-29 16:02:52,202: Started writing intensity
+INFO:__main__ at 2021-10-29 16:02:52,256: Program ended successfully.
+ 
+INFO:Driver at 2021-10-29 16:03:56,636: Incepe executarea deschiderea yt
+INFO:Driver at 2021-10-29 16:04:14,128: Ad skipped
+INFO:Driver at 2021-10-29 16:04:14,129: S-a executat deschiderea yt
+INFO:ScreenRecorder at 2021-10-29 16:04:14,130: Start screen recording...
+INFO:AudioRecorder at 2021-10-29 16:04:14,199: Start audio recording...
+INFO:ScreenRecorder at 2021-10-29 16:04:33,422: Finished screen recording
+INFO:Driver at 2021-10-29 16:04:34,172: Connection was successful
+INFO:AudioRecorder at 2021-10-29 16:04:34,757: Finished audio recording
+INFO:AudioRecorder at 2021-10-29 16:04:37,730: Started compiling audio recorder
+INFO:ScreenRecorder at 2021-10-29 16:04:37,730: Started compiling screen recording
+INFO:AudioRecorder at 2021-10-29 16:04:37,743: Finished compilig audio recording
+INFO:ScreenRecorder at 2021-10-29 16:04:47,962: Finished compilig screen recording
+INFO:__main__ at 2021-10-29 16:04:47,967: Started writing intensity
+INFO:__main__ at 2021-10-29 16:04:47,992: Program ended successfully.
+ 

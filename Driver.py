@@ -20,7 +20,8 @@ class DriverController:
     agreeButtonXPath = "//*[@aria-label='Agree to the use of cookies and other data for the purposes described']"
 
     # Opening the Chrome Driver and maximizing window to the screen size
-    def __init__(self):
+    def __init__(self, seconds):
+        self.seconds = seconds
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
 
@@ -143,15 +144,23 @@ class DriverController:
             logger.error("Internet connection failed. Couldn't skip ad\n")
             raise
 
-    def time_connected(self, seconds):
+    def time_connected(self):
         start_time = time.time()
-        while time.time() - start_time < seconds:
+        while time.time() - start_time < self.seconds:
             if not self.connection():
                 logger.error("Internet connection failed")
                 break
             else:
                 continue
         logger.info("Connection was successful")
+
+    def run(self):
+        logger.info("Incepe executarea deschiderea yt")
+        self.open_yt()
+        self.agree_cookies()
+        self.search_for_video("music")
+        self.skip_ad()
+        logger.info("S-a executat deschiderea yt")
 
     # Function to stop the driver when the process is ended
     def stop(self):
