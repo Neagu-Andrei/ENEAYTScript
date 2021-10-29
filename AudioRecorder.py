@@ -1,3 +1,4 @@
+import errno
 import wave
 import pyaudio
 import logging
@@ -6,10 +7,10 @@ logger = logging.getLogger(__name__)
 
 
 class AudioRecorder:
-    chunk = 1024
+    chunk = 1024    # number of frames in the buffer
     FORMAT = pyaudio.paInt16
-    channels = 1
-    sampleRate = 44100
+    channels = 1    # mono audio stream
+    sampleRate = 44100  # number of frames per second
     seconds = 120
 
     def __init__(self, filename):
@@ -47,11 +48,20 @@ class AudioRecorder:
         self.p.terminate()
 
     def save_to_file(self):
-        logger.info("Started compiling audio recorder")
-        wf = wave.open(self.fileName, "wb")
-        wf.setnchannels(self.channels)
-        wf.setsampwidth(self.p.get_sample_size(self.FORMAT))
-        wf.setframerate(self.sampleRate)
-        wf.writeframes(b"".join(self.frames))
-        logger.info("Finished compilig audio recording")
-        wf.close()
+        try:
+            logger.info("Started compiling audio recorder")
+            wf = wave.open(self.fileName, "wb")
+            wf.setnchannels(self.channels)
+            wf.setsampwidth(self.p.get_sample_size(self.FORMAT))
+            wf.setframerate(self.sampleRate)
+            wf.writeframes(b"".join(self.frames))
+            logger.info("Finished compilig audio recording")
+        except OSError as e:
+            if e.errno == errno.ENOSPC:
+                logger.error("Couldn't compile the audio file. Disk space is full")
+                raise
+            else:
+                logger.error(e)
+                raise
+        finally:
+            wf.close()

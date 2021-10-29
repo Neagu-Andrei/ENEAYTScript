@@ -12,12 +12,11 @@ logger = logging.getLogger(__name__)
 
 class DriverController:
     ytLink = "https://www.youtube.com/"
-    adButtonXPath = "//*[@id='skip-button:w']/span/button"
+    adButtonXPath = "//*[@id='skip-button:6']/span/button"
     # adButtonXPath = "/html/body/ytd-app/div/ytd-page-manager/ytd-watch-flexy/div[5]/div[1]/div/div[1]/div/div/div/ytd-player/div/div/div[4]/div/div[3]/div/div[2]/span/button"
     # adButtonXPath = "#skip-button\:6 > span > button"
 
     # Standard XPath to the agreeButton returns //*[@id="button"] and can't differencate between the other buttons
-    # agreeButtonXPath = "//*[@aria-label='Agree to the use of cookies and other data for the purposes described']"
     agreeButtonXPath = "//*[@aria-label='Agree to the use of cookies and other data for the purposes described']"
 
     # Opening the Chrome Driver and maximizing window to the screen size

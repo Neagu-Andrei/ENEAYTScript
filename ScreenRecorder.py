@@ -1,3 +1,5 @@
+import errno
+
 import cv2
 import pyautogui
 import numpy as np
@@ -30,13 +32,21 @@ class ScreenRecorder:
 
     # Compiles the screen recording
     def write(self):
-        logger.info("Started compiling screen recording")
-        while self.images.qsize() > 0:
-            # converts screenshot to a numpy array and converts color spaces from BGR to RGB
-            frame = cv2.cvtColor(np.array(self.images.get()), cv2.COLOR_BGR2RGB)
-            self.out.write(frame)
-        logger.info("Finished compilig screen recording")
-        self.out.release()
-
+        try:
+            logger.info("Started compiling screen recording")
+            while self.images.qsize() > 0:
+                # converts screenshot to a numpy array and converts color spaces from BGR to RGB
+                frame = cv2.cvtColor(np.array(self.images.get()), cv2.COLOR_BGR2RGB)
+                self.out.write(frame)
+            logger.info("Finished compilig screen recording")
+        except OSError as e:
+            if e.errno == errno.ENOSPC:
+                logger.error("Couldn't compile screen recording file. Disk space is fulll.")
+                raise
+            else:
+                logger.error(e)
+                raise
+        finally:
+            self.out.release()
 
 

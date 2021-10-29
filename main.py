@@ -1,5 +1,6 @@
 import concurrent.futures
-import time
+import errno
+
 from AudioRecorder import AudioRecorder
 from ScreenRecorder import ScreenRecorder
 from Driver import DriverController
@@ -10,7 +11,6 @@ from pydub import AudioSegment
 from math import log10
 import logging
 import csv
-
 logging.basicConfig(filename='log_file.log', level=logging.INFO,
                     format='%(levelname)s:%(name)s at %(asctime)s: %(message)s')
 
@@ -50,7 +50,7 @@ def sound_intensity(file):
     return db
 
 
-def youtube_api(driver):
+def youtube_handler(driver):
     logger.info("Incepe executarea deschiderea yt")
     driver.open_yt()
     driver.agree_cookies()
@@ -59,6 +59,7 @@ def youtube_api(driver):
     logger.info("S-a executat deschiderea yt")
 
 
+# https://audiology-web.s3.amazonaws.com/migrated/NoiseChart_Poster-%208.5x11.pdf_5399b289427535.32730330.pdf
 if __name__ == '__main__':
     DIR = "resources/"
     audioFile = DIR + "audio_recording.wav"
@@ -66,7 +67,7 @@ if __name__ == '__main__':
     driverContrl = DriverController()
     audioRec = AudioRecorder(audioFile)
     screenRec = ScreenRecorder(screenFile)
-    youtube_api(driverContrl)
+    youtube_handler(driverContrl)
     with concurrent.futures.ThreadPoolExecutor() as executor:
         executor.submit(driverContrl.time_connected, 125)
         executor.submit(audioRec.record)
@@ -79,7 +80,15 @@ if __name__ == '__main__':
     with open(DIR + 'intensity_record.csv', 'a', newline='') as csv_file:
         fieldnames = ['Audio File', 'Intensity']
         csv_writer = csv.writer(csv_file)
-        csv_writer.writerow([audioFile, sound_intensity(audioFile)])
+        try:
+            csv_writer.writerow([audioFile, sound_intensity(audioFile)])
+        except OSError as e:
+            if e.errno == errno.ENOSPC:
+                logger.error("Couldn't write intensity in the file. Disk space is full")
+                raise
+            else:
+                logger.error(e)
+                raise
     logger.info("Program ended successfully.\n ")
 
 
