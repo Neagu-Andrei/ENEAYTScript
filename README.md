@@ -7,6 +7,7 @@
 * [PyAudio](https://github.com/Neagu-Andrei/ENEAYTScript/new/main?readme=1#pyaudio)
 * [Pydub](https://github.com/Neagu-Andrei/ENEAYTScript/new/main?readme=1#pydub)
 * [PyAutoGUI](https://github.com/Neagu-Andrei/ENEAYTScript/new/main?readme=1#pyautogui)
+* [Socket](https://github.com/Neagu-Andrei/ENEAYTScript/new/main?readme=1#socket)
 * [Usage](https://github.com/Neagu-Andrei/ENEAYTScript/new/main?readme=1#usage)
 
 ### System information
